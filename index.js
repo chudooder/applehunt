@@ -86,7 +86,7 @@ const app = new Vue({
     submitGuess: function(event) {
       this.result = getResult(this.selectedPuzzle, this.guess)
 
-      logGuess(this.user, this.selectedPuzzle, this.guess)
+      logGuess(this.user, this.selectedPuzzle.id, this.guess)
 
       if (this.result.type === 'CORRECT') {
         return
