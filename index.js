@@ -72,12 +72,31 @@ const app = new Vue({
             type: 'CORRECT'
           }
         }
+      },
+      {
+        id: 'paths',
+        name: 'May Our Paths Cross Again',
+        partials: {
+          '9a57d436cb7c13b1cad63813c6ab40a5': {
+            type: 'CORRECT'
+          }
+        }
+      },
+      {
+        id: 'txtme',
+        name: 'txt me',
+        partials: {
+          '20e06c4bba131a81ebe5359bb84a6579': {
+            type: 'CORRECT'
+          }
+        }
       }
     ]
   },
   computed: {
     isGuessDisabled: function() {
       return this.selectedPuzzle === null 
+        || this.user === ''
         || this.guess === ''
         || this.guessLockout > 0
     }
