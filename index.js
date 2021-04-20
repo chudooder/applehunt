@@ -4,7 +4,6 @@ function standardizeGuess(str) {
 
 function getResult(puzzle, guess) {
   const hash = md5(standardizeGuess(guess))
-  console.log(hash)
   const partial = puzzle.partials[hash]
   if (!partial) {
     return {
@@ -15,12 +14,12 @@ function getResult(puzzle, guess) {
   }
 }
 
-function logGuess(puzzleId, guess) {
+function logGuess(user, puzzleId, guess) {
   axios.post(
     'https://ccx5lft4yg.execute-api.us-west-2.amazonaws.com/prod/guess',
     {
       guess: guess,
-      user: 'test',
+      user: user,
       puzzleId: puzzleId
     }
   )
@@ -36,6 +35,7 @@ const app = new Vue({
     guess: '',
     guessLockout: 0,
     result: null,
+    user: '',
     puzzles: [
       {
         id: 'words',
@@ -86,7 +86,7 @@ const app = new Vue({
     submitGuess: function(event) {
       this.result = getResult(this.selectedPuzzle, this.guess)
 
-      logGuess(this.guess)
+      logGuess(this.user, this.selectedPuzzle, this.guess)
 
       if (this.result.type === 'CORRECT') {
         return
