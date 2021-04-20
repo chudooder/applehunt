@@ -1,0 +1,29 @@
+input {
+  font-size: 16pt;
+}
+
+select {
+  font-size: 16pt;
+}
+
+option {
+  font-size: 16pt;
+}
+
+div {
+  margin: 5px;
+}
+
+html {
+  font-family: 'Nunito', sans-serif;
+}
+
+.prelabel {
+  display: inline-block;
+  width: 100px;
+}
+
+.container {
+  width: 800px;
+  margin: auto;
+}
